@@ -1,113 +1,108 @@
----
-
 # 🧠 Vision Sorting System – OpenCV + ML
 
-A basic but complete computer vision pipeline for real-time object classification using webcam images. Built to practice real-world image handling, data collection, model training, and inference — all from scratch.
-
-The system starts simple using OpenCV and traditional ML, and is structured to scale up to PyTorch-based deep learning later.
+A lightweight, real-time image classification system using OpenCV and traditional machine learning (scikit-learn). Designed for rapid prototyping and educational use — no deep learning or GPU required.
 
 ---
 
-## 🔧 What this project does
+## 🚀 Features
 
-- Captures images from webcam and saves them with labels  
-- Organizes them into clean folders (one per class)  
-- Preprocesses the dataset and builds feature-label pairs  
-- Trains a basic classifier using scikit-learn (LogReg/KNN)  
-- Supports real-time predictions using webcam input  
-- Has scope to upgrade to CNN using PyTorch  
+- Real-time object classification using webcam input  
+- Dataset builder via webcam capture  
+- Trains traditional ML models (kNN, SVM, etc.)  
+- Live prediction overlay on webcam feed  
+- Fast, interpretable, and easy to extend
 
 ---
 
-## 🗂️ Folder Structure
+## 🗂️ Project Structure
 
 ```
 vision_sorting_project/
-├── data/                  # Saved labeled images (red/, blue/, etc.)
-├── models/                # Trained ML or DL models
-├── scripts/               # All core logic and modular scripts
-├── requirements.txt       # Dependencies
-└── README.md              # You're here
+├── data/                   # Labeled images (by class)
+├── models/                 # Trained ML model(s)
+├── scripts/
+│   ├── capture_and_save.py       # Capture and label images
+│   ├── load_and_preprocess.py    # Dataset loading + preprocessing
+│   ├── train_basic_ml.py         # Train scikit-learn model
+│   └── realtime_inference.py     # Live webcam classification
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## 📁 Scripts Breakdown
+## 🔧 Setup
 
-| File                      | Purpose                                      |
-|---------------------------|----------------------------------------------|
-| `capture_and_save.py`     | Capture images from webcam and save with label |
-| `load_and_preprocess.py`  | Load all saved images, preprocess for training |
-| `train_basic_ml.py`       | Train a simple ML model (KNN or Logistic)      |
-| `train_cnn_pytorch.py`    | (Optional) Train a CNN using PyTorch          |
-| `realtime_inference.py`   | Classify live webcam feed using trained model |
+```bash
+conda create -n vision-ml python=3.10
+conda activate vision-ml
+pip install -r requirements.txt
+```
 
 ---
 
-## 🚀 How to Run
+## 📸 Step 1: Capture Training Images
 
-1. Clone the repo or open folder in VS Code  
-2. Activate your environment  
-   ```bash
-   conda activate pytorch_env
-   ```
-3. Install dependencies  
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Run the capture script (change label inside script)  
-   ```bash
-   python scripts/capture_and_save.py
-   ```
-5. Train a basic ML model  
-   ```bash
-   python scripts/train_basic_ml.py
-   ```
-6. (Optional) Train a CNN model  
-   ```bash
-   python scripts/train_cnn_pytorch.py
-   ```
-7. Run real-time inference  
-   ```bash
-   python scripts/realtime_inference.py
-   ```
+```bash
+python scripts/capture_and_save.py
+```
+
+- Press `s` to save a frame  
+- Press `q` to quit  
+- Set your desired label in the script (`label = "example_label"`)  
+- Images are saved under `data/<label>/`
 
 ---
 
-## 🧠 Why I built this
+## 🧠 Step 2: Train Your ML Model
 
-To practice the full CV + ML cycle:
-- Data collection  
-- Preprocessing  
-- Model training  
-- Real-time deployment  
+```bash
+python scripts/train_basic_ml.py
+```
 
-Also to build a solid portfolio project — something that shows I can go from raw webcam input to deployable ML pipeline.
+- Loads data from `data/`  
+- Trains a basic classifier  
+- Saves it to `models/basic_model.pkl`
 
 ---
 
-## 🛠️ Tech Stack
+## 🎥 Step 3: Run Live Inference
 
-- Python 3.10+  
-- OpenCV  
-- NumPy  
+```bash
+python scripts/realtime_inference.py
+```
+
+- Opens webcam  
+- Displays real-time predictions  
+- Press `ESC` to quit
+
+---
+
+## 🛠️ Optional Improvements
+
+- Add region-of-interest (ROI) cropping  
+- Add confidence thresholding or "unknown" fallback  
+- Use motion detection or color segmentation  
+- Extend to more classes with more examples
+
+---
+
+## 📚 Dependencies
+
+- opencv-python  
+- numpy  
 - scikit-learn  
-- PyTorch  
-- Conda (GPU-enabled env)
+
+Install via:
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## ✌️ Built with patience, practice, and purpose
+## 📄 License
 
-By **Sai Karthik Kagolanu**  
-Feel free to explore, fork, or reach out for suggestions.
-
----
-
-## 📝 Notes
-
-- You can add more classes by capturing more labeled images  
-- Model can be switched from KNN to Logistic Regression easily  
-- CNN version can use transfer learning later (ResNet etc.)
+MIT License — free to use, share, and modify.
 
 ---
