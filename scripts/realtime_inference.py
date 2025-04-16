@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import pickle
 
-with open("model/basic_model.pkl", "rb") as f:
+with open("models/basic_model.pkl", "rb") as f:
     model, label_map = pickle.load(f)
 
 img_size = (64,64)
@@ -22,7 +22,7 @@ while True:
     label = label_map[pred]
     cv2.putText(frame, f"Predicted: {label}", (10,30),
                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
-    cv2.imshow("Webcame Classification", frame)
+    cv2.imshow("Webcam Classification", frame)
     if cv2.waitKey(1) & 0xFF == 27:
         break
 
