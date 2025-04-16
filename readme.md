@@ -97,7 +97,8 @@ python scripts/realtime_inference.py
 
 - opencv-python  
 - numpy  
-- scikit-learn  
+- scikit-learn
+- pytorch
 
 Install via:
 
