@@ -24,7 +24,8 @@ vision_sorting_project/
 │   ├── capture_and_save.py       # Capture and label images
 │   ├── load_and_preprocess.py    # Dataset loading + preprocessing
 │   ├── train_basic_ml.py         # Train scikit-learn model
-│   └── realtime_inference.py     # Live webcam classification
+│   ├── realtime_inference.py     # Live webcam classification
+│   └── train_cnn_pytorch.py      # Train PyTorch CNN model   
 ├── requirements.txt
 └── README.md
 ```
@@ -65,6 +66,11 @@ python scripts/train_basic_ml.py
 - Saves it to `models/basic_model.pkl`
 
 ---
+### 🧠 Optional: Train a CNN Model (PyTorch)
+
+```bash
+python scripts/train_cnn_pytorch.py
+```
 
 ## 🎥 Step 3: Run Live Inference
 
