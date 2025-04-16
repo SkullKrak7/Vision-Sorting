@@ -1,2 +1,14 @@
-venv
-.idea
+models/
+data/
+__pycache__/
+*.py[cod]
+.env
+*.env
+*.venv/
+.venv/
+env/
+venv/
+.DS_Store
+Thumbs.db
+.vscode/
+.ipynb_checkpoints/
