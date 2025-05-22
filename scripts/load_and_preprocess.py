@@ -25,4 +25,14 @@ def load_dataset(data_dir, img_size=(64, 64)):
 
     X = np.array(X, dtype=np.float32) / 255.0
     y = np.array(y)
+
+    class_counts = {label_map[i]: y.tolist().count(i) for i in label_map}
+    if len(label_map) < 2:
+        print("Warning: Only one class found. Classification requires at least two classes.")
+
+    for label, count in class_counts.items():
+        if count < 10:
+            print(f"Warning: Class '{label}' has only {count} samples. Consider adding more for better results.")
+
     return train_test_split(X, y, test_size=0.2, random_state=42), label_map
+
