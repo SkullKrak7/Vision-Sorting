@@ -53,7 +53,6 @@ vision_sorting_project/
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-# If any issues occur, check that all required packages are listed and install manually if needed
 ```
 
 ## Step 1: Capture Training Images
@@ -110,11 +109,11 @@ python scripts/realtime_inference.py
 
 To ensure reliable training and inference, follow these guidelines when preparing your dataset:
 
-* **Number of classes**: At least 2 classes are required (e.g., 'red' and 'blue')
-* **Samples per class**: Minimum 10 images per class; 50+ recommended for stability
-* **Balanced classes**: Keep class counts roughly equal for best performance
-* **File format**: Store images under `data/<class_label>/` directories
-* **Image size**: Images are resized to 64x64 pixels automatically (for CNN only)
+* Number of classes: At least 2 classes are required (e.g., 'red' and 'blue')
+* Samples per class: Minimum 10 images per class; 50+ recommended for stability
+* Balanced classes: Keep class counts roughly equal for best performance
+* File format: Store images under `data/<class_label>/` directories
+* Image size: Images are resized to 64x64 pixels automatically (for CNN only)
 
 Avoid training with only one class or very low image counts per class. The system currently does not augment or balance data.
 
