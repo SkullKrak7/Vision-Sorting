@@ -33,8 +33,8 @@ Use this project to prototype basic vision-based classification tasks, compare M
 
 ```
 vision_sorting_project/
-├── data/                       # (user-generated) Labeled images by class – not included in repository
-├── models/                     # (auto-generated) Trained ML models – not included in repository
+├── data/                       # (user-generated) Labeled images by class - not included in repository
+├── models/                     # (auto-generated) Trained ML models - not included in repository
 ├── scripts/
 │   ├── capture_and_save.py       # Capture and label images
 │   ├── load_and_preprocess.py    # Dataset loading and preprocessing
@@ -104,6 +104,30 @@ python scripts/realtime_inference.py
 * Add confidence thresholding or an "unknown" fallback
 * Use motion detection or color segmentation
 * Extend to more classes with more examples
+
+## Run with Docker (Optional)
+
+If you prefer running this project in an isolated container, use the provided `Dockerfile`.
+
+### Build the image
+
+```bash
+docker build -t vision-sorting .
+```
+
+### Run the container with interactive menu
+
+```bash
+docker run -it --rm vision-sorting
+```
+
+### Run specific scripts directly
+
+```bash
+docker run --rm vision-sorting python scripts/train_basic_ml.py
+```
+
+> This will execute the selected script inside the container. Make sure your training data is available inside the container (or mount a volume if needed).
 
 ## Minimum Dataset Requirements
 
