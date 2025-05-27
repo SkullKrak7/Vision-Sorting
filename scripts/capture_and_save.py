@@ -2,18 +2,15 @@ import cv2
 import os
 from datetime import datetime
 
-# === Configuration ===
 label = "red"  # Change this to your class label
 frame_width = 640
 frame_height = 480
 
 def main():
-    # Set up save path
     base_dir = os.path.dirname(os.path.abspath(__file__))
     save_dir = os.path.abspath(os.path.join(base_dir, "..", "data", label))
     os.makedirs(save_dir, exist_ok=True)
 
-    # Open webcam
     cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, frame_width)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, frame_height)
